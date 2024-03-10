@@ -13,6 +13,7 @@ export const btnController = () => {
         });
       }
       if (e.target.matches(".btn-close")) {
+        //agregar animación antes de quitar
         document.querySelector(".rules-modal-panel").remove();
       }
       if (e.target.matches(".winner-replay-btn")) {

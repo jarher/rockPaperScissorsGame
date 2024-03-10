@@ -1,5 +1,7 @@
+import { states } from "../app.js";
 import { optionCircle } from "../components/optionCircle.js";
 import { optionSelectedComponent } from "../components/optionSelected.js";
+import { setStates } from "../helpers.js";
 import { renderNodes } from "./renderNodes.js";
 
 export const optionSelectedController = ({ options, container }) => {
@@ -15,6 +17,12 @@ export const optionSelectedController = ({ options, container }) => {
     },
   ];
 
-  renderNodes({data:gamers, isMapping:true, template:optionSelectedComponent, container})
+  renderNodes({
+    data: gamers,
+    isMapping: true,
+    template: optionSelectedComponent,
+    container,
+  });
 
+  setStates(states, { isFinished: true });
 };

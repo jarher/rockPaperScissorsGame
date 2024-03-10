@@ -1,13 +1,15 @@
+const appendTo = (parent, child) => parent.appendChild(child);
+
 export const renderNodes = ({ data, isMapping, template, container }) => {
   if (Array.isArray(data)) {
     if (isMapping) {
       data
         .map((element) => template(element))
-        .forEach((node) => container.appendChild(node));
+        .forEach((node) => appendTo(container, node));
         return;
     }
-    data.forEach(node => container.appendChild(node));
+    data.forEach(node => appendTo(container, node));
     return;
   }
-  container.appendChild(data);
+  appendTo(container, data);
 };
