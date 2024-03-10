@@ -1,6 +1,11 @@
-.rules-modal-panel{
-    height: 100vh;
-    width: 100vw;
-    background-color: white;
-    position: absolute;
+.rules-modal-panel {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  position: absolute;
+}
+.btn-close {
+  height: 23px;
+  width: auto;
+  background: url("../images/icon-close.svg") no-repeat center / contain;
 }

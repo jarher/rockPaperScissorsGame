@@ -1,6 +1,6 @@
 import { buttonComponent } from "./btnComponent.js";
 
-export const rulesModalView = () => {
+export const rulesModalComponent = () => {
   const rulesModalPanel = document.createElement("div");
   rulesModalPanel.className = "rules-modal-panel";
   const template = `
@@ -8,7 +8,7 @@ export const rulesModalView = () => {
     <img src="./src/images/image-rules-bonus.svg" alt="image rules bonus" />
     ${buttonComponent({
       nameClass: "btn-close",
-      element: "<img src='./src/images/icon-close.svg' alt='close button'/>",
+      element: "",
     })}
   `;
   rulesModalPanel.innerHTML = template;

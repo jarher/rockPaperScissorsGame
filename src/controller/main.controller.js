@@ -1,5 +1,7 @@
+import { renderNodes } from "./renderNodes.js";
+
 export const mainController = (content) => {
   const main = document.querySelector(".main");
   main.innerHTML = "";
-  main.appendChild(content);
+  renderNodes({data:content, isMapping:false, container:main})
 };

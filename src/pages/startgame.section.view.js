@@ -1,6 +1,8 @@
 import { states } from "../app.js";
-import { optionSelected } from "../components/optionSelected.js";
 import { winnerComponent } from "../components/winner.js";
+import { scoreController } from "../controller/header.controller.js";
+import { optionSelectedController } from "../controller/optionSelected.controller.js";
+import { renderNodes } from "../controller/renderNodes.js";
 import { data } from "../data.js";
 import { getStates, randomValue, setStates } from "../helpers.js";
 
@@ -68,14 +70,15 @@ export const startGameSection = () => {
   };
 
   // render user option
-  optionSelected({ options, container: start });
+  optionSelectedController({ options, container: start });
 
   setStates(states, { isFinished: true });
-  
+
   setTimeout(() => {
     getStates(states).isFinished &&
-      start.appendChild(winnerComponent(getStates(states)));
-    document.querySelector(".score-value").innerText = getStates(states).score;
+      renderNodes({ data: winnerComponent(getStates(states)), isMapping:false, container:start });
+
+    scoreController(getStates(states).score);
   }, 1000);
 
   return start;

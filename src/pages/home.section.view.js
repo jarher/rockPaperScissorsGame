@@ -1,4 +1,5 @@
 import { optionCircle } from "../components/optionCircle.js";
+import { renderNodes } from "../controller/renderNodes.js";
 import { data } from "../data.js";
 
 export const homeSection = () => {
@@ -7,10 +8,22 @@ export const homeSection = () => {
   const pentagonImg = document.createElement("img");
   pentagonImg.src = "./src/images/bg-pentagon.svg";
   pentagonImg.className = "pentagon-img";
-  home.appendChild(pentagonImg);
- 
-  data
-    .map((values) => optionCircle(values))
-    .forEach((option) => home.appendChild(option));
+
+  const nodes = [
+    {
+      data: pentagonImg,
+      isMapping:false,
+      container: home,
+    },
+    {
+      data,
+      isMapping: true,
+      template: optionCircle,
+      container: home,
+    },
+  ];
+  
+  nodes.forEach(node => renderNodes(node));
+
   return home;
 };

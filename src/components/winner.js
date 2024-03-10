@@ -13,7 +13,7 @@ export const winnerComponent = (states) => {
         } </span>
         ${buttonComponent({
           nameClass: "winner-replay-btn",
-          element: "<a href='/#/'>PLAY AGAIN</a>",
+          element: "PLAY AGAIN",
         })}
     `;
   winnerWrapper.innerHTML = template;

@@ -1,5 +1,3 @@
-import { states } from "../app.js";
-import { headerView } from "../components/header.js"
-export const headerController = (score) => {
-  return headerView(score);
+export const scoreController = (score) => {
+  document.querySelector(".score-value").textContent = score;
 }

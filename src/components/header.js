@@ -1,4 +1,4 @@
-export const headerView = (score) => {
+export const headerComponent = () => {
     const header = document.createElement('header');
     header.className = 'header';
     const template = `
@@ -11,7 +11,7 @@ export const headerView = (score) => {
         </ul>
         <h1>
         <span>score</span>
-        <span class="score-value">${score}</span>
+        <span class="score-value"></span>
         </h1>
     `;
     header.innerHTML = template;
