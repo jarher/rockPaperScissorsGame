@@ -2,28 +2,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 60vh;
 }
 .pentagon-img {
-  width: 175px;
-  height: 175px;
+  width: 200px;
+  height: 200px;
+}
+.home .option {
+  width: 90px;
+  height: 90px;
 }
 .home .scissors-option {
-  top: 0;
+  top: 0px;
   margin: auto;
 }
 .home .paper-option {
-  right: 0;
-  top: 0;
+  right: 0px;
+  top: 85px;
 }
 .home .rock-option {
-  bottom: 0;
-  right: 0;
+  bottom: 0px;
+  right: 40px;
 }
 .home .lizard-option {
-  bottom: 0;
-  left: 0;
+  bottom: 0px;
+  left: 40px;
 }
 .home .spock-option {
-  top: 0;
-  left: 0;
+  top: 85px;
+  left: 0px;
+}
+.home .option:after {
+  width: 65px;
+  height: 65px;
+}
+.home .option img{
+  width: 30px;
+  height: 30px;
 }

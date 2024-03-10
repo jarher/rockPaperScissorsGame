@@ -1,7 +1,9 @@
 export const optionCircle = ({nameClass, imgUrl}) => {
+    const figure = document.createElement("figure");
+    figure.classList.add(nameClass);
+    figure.classList.add("option");
     const img = document.createElement('img');
-    img.classList.add(nameClass);
-    img.classList.add("option");
     img.src = imgUrl;
-    return img;
+    figure.appendChild(img);
+    return figure;
 }

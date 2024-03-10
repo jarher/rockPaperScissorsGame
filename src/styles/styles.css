@@ -9,20 +9,26 @@
 * {
   box-sizing: border-box;
 }
+html{
+  font-size: 10px;
+}
 body,
-ul {
+ul,
+h1 {
   margin: 0;
 }
 body {
-  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  padding: 25px 25px 40px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  position: relative;
 }
 #root {
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   position: relative;
+  gap: 75px;
 }
 .main {
   width: 100vw;
@@ -34,5 +40,9 @@ section {
 }
 button {
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+img{
+  width: 100%;
+  height: auto;
 }

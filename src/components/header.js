@@ -9,10 +9,11 @@ export const headerComponent = () => {
             <li>LIZARD</li>
             <li>SPOCK</li>
         </ul>
-        <h1>
-        <span>score</span>
-        <span class="score-value"></span>
-        </h1>
+        <div class="score-wrapper">
+            <h1>score</h1>
+            <span class="score-value"></span>
+        </div>
+        
     `;
     header.innerHTML = template;
     return header;

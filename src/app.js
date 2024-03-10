@@ -41,7 +41,7 @@ export const App = () => {
   ];
 
   const root = document.getElementById("root");
-  
+
   // render main nodes
   renderNodes({ data: nodes, isMapping: false, container: root });
 
@@ -64,7 +64,7 @@ export const App = () => {
     },
     {
       controller: btnController,
-      params: root,
+      params: null,
     },
   ]);
 };

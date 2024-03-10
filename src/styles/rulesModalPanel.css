@@ -1,11 +1,29 @@
 .rules-modal-panel {
-  height: 100vh;
-  width: 100vw;
   background-color: white;
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 115%;
+}
+.rules-modal-panel h2{
+  margin-top: 90px;
+  font-size: 3.5rem;
+  text-align: center;
+  color: hsl(229, 25%, 31%);
+}
+.rules-modal-panel img{
+  margin-top: 80px;
+  width: 80%;
 }
 .btn-close {
-  height: 23px;
-  width: auto;
+  height: 25px;
+  width: 25px;
   background: url("../images/icon-close.svg") no-repeat center / contain;
+  margin-top: 125px;
 }
