@@ -1,0 +1,29 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pentagon-img {
+  width: 175px;
+  height: 175px;
+}
+.home .scissors-option {
+  top: 0;
+  margin: auto;
+}
+.home .paper-option {
+  right: 0;
+  top: 0;
+}
+.home .rock-option {
+  bottom: 0;
+  right: 0;
+}
+.home .lizard-option {
+  bottom: 0;
+  left: 0;
+}
+.home .spock-option {
+  top: 0;
+  left: 0;
+}

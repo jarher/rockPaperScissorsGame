@@ -1,0 +1,39 @@
+.option {
+  position: absolute;
+  background-color: hsl(237, 49%, 15%);
+  border-radius: 50%;
+   width: 80px;
+  height: 80px;
+}
+.rock-option,
+.paper-option,
+.scissors-option,
+.lizard-option,
+.spock-option {
+  padding: 10px;
+}
+.rock-option::after,
+.paper-option::after,
+.scissors-option::after,
+.lizard-option::after,
+.spock-option::after{
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+}
+.rock-option {
+  background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.paper-option {
+  background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.scissors-option {
+  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+.lizard-option {
+  background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+}
+.spock-option {
+  background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+}
