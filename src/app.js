@@ -17,7 +17,6 @@ export const states = {
   houseOption: null,
   isUserWin: null,
   isFinished: null,
-  isTransition: false,
 };
 export const App = () => {
   // asign default states values
