@@ -1,52 +1,38 @@
-import { states } from "../app.js";
-import { startGameComponent } from "../components/startgameComponent.js";
-import { data } from "../data.js";
 import {
   compareOptions,
   getStates,
   randomValue,
   setStates,
 } from "../helpers.js";
-import { fadeIn } from "./fadeIn.controller.js";
+import { states } from "../app.js";
+import { startGameComponent } from "../components/startgameComponent.js";
+import { data } from "../data.js";
 import { optionSelectedController } from "./optionSelectedController.js";
-import { renderNodes } from "./renderNodes.js";
-import { scoreController } from "./scoreController.js";
-import { winnerController } from "./winnerController.js";
-import { winnerIndicatorController } from "./winnerIndicatorController.js";
+import { showWarningController } from "./showWarningController.js";
 
 export const startGameController = function () {
-
-  const start = startGameComponent();
+  const gameContainer = startGameComponent();
 
   setStates(states, {
     houseOption: data[randomValue()].nameClass,
+    isFinished: true,
   });
 
-  compareOptions(states, getStates(states), setStates);
+  const changeState = new CustomEvent("changeState", {
+    bubbles: false,
+    cancelable: true,
+    detail: {
+      state: getStates(states),
+    },
+  });
 
-  const options = {
-    userClass: data.filter(
-      (element) => element.nameClass === getStates(states).userOption
-    )[0],
-    houseClass: data.filter(
-      (element) => element.nameClass === getStates(states).houseOption
-    )[0],
-  };
+  compareOptions();
 
-  // render gamers option
-  optionSelectedController({ options, container: start });
+  optionSelectedController(gameContainer);
 
-  setTimeout(() => {
-    const winner = winnerController();
-    getStates(states).isFinished &&
-      renderNodes({
-        data: winner,
-        isMapping: false,
-        container: start,
-      });
-    winnerIndicatorController();
-    scoreController();
-    fadeIn(winner);
-  }, 1000);
-  return start;
+  showWarningController(gameContainer);
+
+  document.dispatchEvent(changeState);
+  
+  return gameContainer;
 };

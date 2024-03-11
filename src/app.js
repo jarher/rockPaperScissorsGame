@@ -8,8 +8,8 @@ import { hashController } from "./controller/hashController.js";
 import { callControllers } from "./controller/callControllers.js";
 import { btnController } from "./controller/btnController.js";
 import { mainController } from "./controller/mainController.js";
-import { setStates } from "./helpers.js";
 import { homeController } from "./controller/homeController.js";
+import { setStates } from "./helpers.js";
 
 export const states = {
   score: 0,
@@ -18,7 +18,12 @@ export const states = {
   isUserWin: null,
   isFinished: null,
 };
+
+
+
 export const App = () => {
+
+  const root = document.getElementById("root");
   // asign default states values
   setStates(states, {
     score: 12,
@@ -39,8 +44,6 @@ export const App = () => {
     })(),
     ,
   ];
-
-  const root = document.getElementById("root");
 
   // render main nodes
   renderNodes({ data: nodes, isMapping: false, container: root });

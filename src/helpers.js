@@ -13,42 +13,34 @@ export const getStates = (data) => JSON.parse(JSON.stringify(data));
 export const randomValue = () => Math.floor(Math.random() * 5);
 
 export const compareOptions = function () {
-  if (
-    (getStates(states).userOption === "scissors-option" &&
-      getStates(states).houseOption === "scissors-option") ||
-    (getStates(states).userOption === "paper-option" &&
-      getStates(states).houseOption === "paper-option") ||
-    (getStates(states).userOption === "rock-option" &&
-      getStates(states).houseOption === "rock-option") ||
-    (getStates(states).userOption === "lizard-option" &&
-      getStates(states).houseOption === "lizard-option") ||
-    (getStates(states).userOption === "spock-option" &&
-      getStates(states).houseOption === "spock-option")
-  ) {
+  const userOption = getStates(states).userOption;
+  const houseOption = getStates(states).houseOption;
+
+  if (userOption === houseOption) {
     setStates(states, { isUserWin: null });
     return;
   }
   if (
-    (getStates(states).userOption === "scissors-option" &&
-      getStates(states).houseOption === "paper-option") ||
-    (getStates(states).userOption === "paper-option" &&
-      getStates(states).houseOption === "rock-option") ||
-    (getStates(states).userOption === "rock-option" &&
-      getStates(states).houseOption === "lizard-option") ||
-    (getStates(states).userOption === "lizard-option" &&
-      getStates(states).houseOption === "spock-option") ||
-    (getStates(states).userOption === "spock-option" &&
-      getStates(states).houseOption === "scissors-option") ||
-    (getStates(states).userOption === "paper-option" &&
-      getStates(states).houseOption === "spock-option") ||
-    (getStates(states).userOption === "scissors-option" &&
-      getStates(states).houseOption === "lizard-option") ||
-    (getStates(states).userOption === "spock-option" &&
-      getStates(states).houseOption === "rock-option") ||
-    (getStates(states).userOption === "lizard-option" &&
-      getStates(states).houseOption === "paper-option") ||
-    (getStates(states).userOption === "rock-option" &&
-      getStates(states).houseOption === "scissors-option")
+    (userOption === "scissors-option" &&
+      houseOption === "paper-option") ||
+    (userOption === "paper-option" &&
+      houseOption === "rock-option") ||
+    (userOption === "rock-option" &&
+      houseOption === "lizard-option") ||
+    (userOption === "lizard-option" &&
+      houseOption === "spock-option") ||
+    (userOption === "spock-option" &&
+      houseOption === "scissors-option") ||
+    (userOption === "paper-option" &&
+      houseOption === "spock-option") ||
+    (userOption === "scissors-option" &&
+      houseOption === "lizard-option") ||
+    (userOption === "spock-option" &&
+      houseOption === "rock-option") ||
+    (userOption === "lizard-option" &&
+      houseOption === "paper-option") ||
+    (userOption === "rock-option" &&
+      houseOption === "scissors-option")
   ) {
     setStates(states, { isUserWin: true, score: getStates(states).score + 1 });
     return;

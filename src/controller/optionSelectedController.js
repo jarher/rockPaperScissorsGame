@@ -1,28 +1,33 @@
-import { states } from "../app.js";
 import { optionCircle } from "../components/optionCircleComponent.js";
 import { optionSelectedComponent } from "../components/optionSelectedComponent.js";
-import { setStates } from "../helpers.js";
+import { data } from "../data.js";
 import { renderNodes } from "./renderNodes.js";
 
-export const optionSelectedController = ({ options, container }) => {
-  const { userClass, houseClass } = options;
-  const gamers = [
-    {
-      gamer: "YOU PICKED",
-      obj: optionCircle(userClass),
-    },
-    {
-      gamer: "THE HOUSE PICKED",
-      obj: optionCircle(houseClass),
-    },
-  ];
+export const optionSelectedController = (container) => {
+  document.addEventListener("changeState", (e) => {
+    const user = data.filter(
+      (element) => element.nameClass === e.detail.state.userOption
+    )[0];
+    const house = data.filter(
+      (element) => element.nameClass === e.detail.state.houseOption
+    )[0];
 
-  renderNodes({
-    data: gamers,
-    isMapping: true,
-    template: optionSelectedComponent,
-    container,
+    const gamersData = [
+      {
+        gamer: "YOU PICKED",
+        obj: optionCircle(user),
+      },
+      {
+        gamer: "THE HOUSE PICKED",
+        obj: optionCircle(house),
+      },
+    ];
+
+    renderNodes({
+      data: gamersData,
+      isMapping: true,
+      template: optionSelectedComponent,
+      container,
+    });
   });
-
-  setStates(states, { isFinished: true });
 };
