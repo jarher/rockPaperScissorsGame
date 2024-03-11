@@ -9,9 +9,8 @@ export const setStates = function (data, obj) {
 };
 
 export const getStates = (data) => JSON.parse(JSON.stringify(data));
-;
 
-export const randomValue =  () => Math.floor(Math.random() * 5);
+export const randomValue = () => Math.floor(Math.random() * 5);
 
 export const compareOptions = function () {
   if (
@@ -54,5 +53,8 @@ export const compareOptions = function () {
     setStates(states, { isUserWin: true, score: getStates(states).score + 1 });
     return;
   }
-  setStates(states, { isUserWin: false, score: getStates(states).score - 1 });
+  setStates(states, {
+    isUserWin: false,
+    score: getStates(states).score == 0 ? 0 : getStates(states).score - 1,
+  });
 };

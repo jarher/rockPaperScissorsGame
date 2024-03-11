@@ -1,11 +1,14 @@
 import { states } from "../app.js";
 import { getStates } from "../helpers.js";
+import { fadeIn } from "./fadeIn.controller.js";
+import { fadeOut } from "./fadeOutController.js";
 
 export const scoreController = () => {
   const scoreValue = document.querySelector(".score-value");
-  scoreValue.style.opacity = 0;
+  fadeOut(scoreValue);
   setTimeout(() => {
-    scoreValue.style.opacity = 1;
     scoreValue.textContent = getStates(states).score;
+    fadeIn(scoreValue);
   }, 300);
+  
 };

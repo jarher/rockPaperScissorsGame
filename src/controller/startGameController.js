@@ -7,10 +7,12 @@ import {
   randomValue,
   setStates,
 } from "../helpers.js";
+import { fadeIn } from "./fadeIn.controller.js";
 import { optionSelectedController } from "./optionSelectedController.js";
 import { renderNodes } from "./renderNodes.js";
 import { scoreController } from "./scoreController.js";
 import { winnerController } from "./winnerController.js";
+import { winnerIndicatorController } from "./winnerIndicatorController.js";
 
 export const startGameController = function () {
 
@@ -31,7 +33,7 @@ export const startGameController = function () {
     )[0],
   };
 
-  // render user option
+  // render gamers option
   optionSelectedController({ options, container: start });
 
   setTimeout(() => {
@@ -42,8 +44,9 @@ export const startGameController = function () {
         isMapping: false,
         container: start,
       });
+    winnerIndicatorController();
     scoreController();
-    setTimeout(() => winner.classList.add("fadeIn"), 100);
+    fadeIn(winner);
   }, 1000);
   return start;
 };

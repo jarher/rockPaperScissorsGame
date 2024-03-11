@@ -22,6 +22,7 @@ body {
   padding: 25px 25px 50px;
   font-family: "Barlow Semi Condensed", sans-serif;
   position: relative;
+  height: 675px;
 }
 #root {
   display: flex;
@@ -37,6 +38,7 @@ body {
 section {
   position: relative;
   height: 100%;
+  margin: auto;
 }
 button {
   border: none;

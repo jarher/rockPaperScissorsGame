@@ -1,4 +1,6 @@
 import { rulesModalComponent } from "../components/rulesComponent.js";
+import { fadeIn } from "./fadeIn.controller.js";
+import { fadeOut } from "./fadeOutController.js";
 import { renderNodes } from "./renderNodes.js";
 
 export const btnController = () => {
@@ -6,15 +8,18 @@ export const btnController = () => {
     "click",
     (e) => {
       if (e.target.matches(".btn-rules")) {
+        const node = rulesModalComponent();
         renderNodes({
-          data: rulesModalComponent(),
+          data: node,
           isMapping: false,
           container: document.querySelector("body"),
         });
+        fadeIn(node);
       }
       if (e.target.matches(".btn-close")) {
-        //agregar animación antes de quitar
-        document.querySelector(".rules-modal-panel").remove();
+        const modal = document.querySelector(".rules-modal-panel");
+        fadeOut(modal);
+        setTimeout(() => modal.remove(), 300);
       }
       if (e.target.matches(".winner-replay-btn")) {
         window.location.hash = "#/";

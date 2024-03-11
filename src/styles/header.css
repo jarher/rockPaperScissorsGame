@@ -38,4 +38,5 @@ h1 {
   font-weight: 700;
   margin-top: -5px;
   transition: opacity 0.3s ease-in-out;
+  opacity: 0;
 }

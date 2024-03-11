@@ -4,11 +4,12 @@
   align-items: center;
   height: 60vh;
   transition: opacity 0.3s ease-in-out;
-  opacity:0
+  opacity:0;
+  width: 270px;
 }
 .pentagon-img {
-  width: 200px;
-  height: 200px;
+  width: 210px;
+  height: 210px;
 }
 .home .option {
   width: 90px;
@@ -19,20 +20,20 @@
   margin: auto;
 }
 .home .paper-option {
-  right: 0px;
+  right: -40px;
   top: 85px;
 }
 .home .rock-option {
   bottom: 0px;
-  right: 40px;
+  right: -10px;
 }
 .home .lizard-option {
   bottom: 0px;
-  left: 40px;
+  left: -10px;
 }
 .home .spock-option {
   top: 85px;
-  left: 0px;
+  left: -40px;
 }
 .home .option:after {
   width: 65px;

@@ -10,14 +10,16 @@
   flex-direction: column;
   align-items: center;
   height: 115%;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
 }
-.rules-modal-panel h2{
+.rules-modal-panel h2 {
   margin-top: 90px;
   font-size: 3.5rem;
   text-align: center;
   color: hsl(229, 25%, 31%);
 }
-.rules-modal-panel img{
+.rules-modal-panel img {
   margin-top: 80px;
   width: 80%;
 }
