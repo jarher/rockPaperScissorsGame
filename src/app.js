@@ -1,15 +1,15 @@
 import { buttonComponent } from "./components/btnComponent.js";
 import { scoreController } from "./controller/scoreController.js";
 import { routerController } from "./controller/routerController.js";
-import { mainComponent } from "./components/main.js";
-import { setStates } from "./helpers.js";
-import { headerComponent } from "./components/header.js";
+import { mainComponent } from "./components/mainComponent.js";
+import { headerComponent } from "./components/headerComponent.js";
 import { renderNodes } from "./controller/renderNodes.js";
 import { hashController } from "./controller/hashController.js";
 import { callControllers } from "./controller/callControllers.js";
 import { btnController } from "./controller/btnController.js";
-import { homeSection } from "./pages/home.section.view.js";
 import { mainController } from "./controller/mainController.js";
+import { setStates } from "./helpers.js";
+import { homeController } from "./controller/homeController.js";
 
 export const states = {
   score: 0,
@@ -17,6 +17,7 @@ export const states = {
   houseOption: null,
   isUserWin: null,
   isFinished: null,
+  isTransition: false,
 };
 export const App = () => {
   // asign default states values
@@ -60,7 +61,7 @@ export const App = () => {
     },
     {
       controller: mainController,
-      params: homeSection(),
+      params: homeController(),
     },
     {
       controller: btnController,

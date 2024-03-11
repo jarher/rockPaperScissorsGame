@@ -1,24 +1,23 @@
-import { callControllers } from "./controller/callControllers.js";
 import { mainController } from "./controller/mainController.js";
 import { startGameController } from "./controller/startGameController.js";
-import { errorSection } from "./pages/error.404.view.js";
-import { homeSection } from "./pages/home.section.view.js";
+import { errorComponent } from "./components/errorComponent.js";
+import { homeController } from "./controller/homeController.js";
+import { callControllers } from "./controller/callControllers.js";
 
 export function Router() {
   let { hash } = location;
-  let view;
-  //agregar animación al cambiar de vista
+  let node;
+
   switch (hash.slice(1)) {
     case "/":
-      view = homeSection();
+      node = homeController();
       break;
     case "/start":
-      view = startGameController();
+      node = startGameController();
       break;
     default:
-      view = errorSection();
+      node = errorComponent();
       break;
   }
-
-  callControllers([{ controller: mainController, params: view }]);
+  callControllers([{ controller: mainController, params: node }]);
 }

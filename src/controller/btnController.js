@@ -1,4 +1,4 @@
-import { rulesModalComponent } from "../components/rules.js";
+import { rulesModalComponent } from "../components/rulesComponent.js";
 import { renderNodes } from "./renderNodes.js";
 
 export const btnController = () => {

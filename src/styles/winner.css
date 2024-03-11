@@ -9,10 +9,12 @@
   flex-direction: column;
   align-items: center;
   color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
-.winner-replay-btn{
-    background-color: white;
+.winner-replay-btn {
+  background-color: white;
 }
-.winner-replay-btn a{
-    text-decoration: none;
+.winner-replay-btn a {
+  text-decoration: none;
 }

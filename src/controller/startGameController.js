@@ -1,5 +1,5 @@
 import { states } from "../app.js";
-import { winnerComponent } from "../components/winner.js";
+import { startGameComponent } from "../components/startgameComponent.js";
 import { data } from "../data.js";
 import {
   compareOptions,
@@ -7,13 +7,14 @@ import {
   randomValue,
   setStates,
 } from "../helpers.js";
-import { startGameSection } from "../pages/startgame.section.view.js";
-import { optionSelectedController } from "./optionSelected.controller.js";
+import { optionSelectedController } from "./optionSelectedController.js";
 import { renderNodes } from "./renderNodes.js";
 import { scoreController } from "./scoreController.js";
+import { winnerController } from "./winnerController.js";
 
 export const startGameController = function () {
-  const  start  = startGameSection();
+
+  const start = startGameComponent();
 
   setStates(states, {
     houseOption: data[randomValue()].nameClass,
@@ -34,15 +35,15 @@ export const startGameController = function () {
   optionSelectedController({ options, container: start });
 
   setTimeout(() => {
-    //agregar animación para mostrar la vista de ganador, y animar la opción ganadora con un efecto de sombreado radial
+    const winner = winnerController();
     getStates(states).isFinished &&
       renderNodes({
-        data: winnerComponent(getStates(states)),
+        data: winner,
         isMapping: false,
         container: start,
       });
-    //animar la vista del score, transición del puntaje
     scoreController();
+    setTimeout(() => winner.classList.add("fadeIn"), 100);
   }, 1000);
   return start;
 };

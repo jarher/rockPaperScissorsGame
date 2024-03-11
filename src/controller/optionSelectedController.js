@@ -1,6 +1,6 @@
 import { states } from "../app.js";
-import { optionCircle } from "../components/optionCircle.js";
-import { optionSelectedComponent } from "../components/optionSelected.js";
+import { optionCircle } from "../components/optionCircleComponent.js";
+import { optionSelectedComponent } from "../components/optionSelectedComponent.js";
 import { setStates } from "../helpers.js";
 import { renderNodes } from "./renderNodes.js";
 

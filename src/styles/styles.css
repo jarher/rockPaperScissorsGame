@@ -46,3 +46,6 @@ img{
   width: 100%;
   height: auto;
 }
+.fadeIn{
+  opacity:1
+}
