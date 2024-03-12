@@ -9,7 +9,7 @@ import { callControllers } from "./controller/callControllers.js";
 import { btnController } from "./controller/btnController.js";
 import { mainController } from "./controller/mainController.js";
 import { homeController } from "./controller/homeController.js";
-import { setStates } from "./helpers.js";
+import { getStates } from "./helpers.js";
 
 export const states = {
   score: 0,
@@ -19,15 +19,19 @@ export const states = {
   isFinished: null,
 };
 
-
+// copy of default states and create custom event
+export const changeState = new CustomEvent("changeState", {
+  bubbles: true,
+  cancelable: false,
+  detail: {
+    state: getStates(states),
+  },
+});
 
 export const App = () => {
-
   const root = document.getElementById("root");
   // asign default states values
-  setStates(states, {
-    score: 12,
-  });
+  changeState.detail.state.score = 12;
 
   const nodes = [
     headerComponent(),
@@ -36,6 +40,7 @@ export const App = () => {
     ,
     (() => {
       const btnWrapper = document.createElement("div");
+      btnWrapper.className = "rules-btn-wrapper";
       btnWrapper.innerHTML = buttonComponent({
         nameClass: "btn-rules",
         element: "RULES",
@@ -45,29 +50,37 @@ export const App = () => {
     ,
   ];
 
-  // render main nodes
-  renderNodes({ data: nodes, isMapping: false, container: root });
-
-  callControllers([
-    {
-      controller: scoreController,
-      params: null,
-    },
-    {
-      controller: hashController,
-      params: null,
-    },
-    {
-      controller: routerController,
-      params: null,
-    },
-    {
-      controller: mainController,
-      params: homeController(),
-    },
-    {
-      controller: btnController,
-      params: null,
-    },
-  ]);
+  document.addEventListener("changeState", (e) => {
+    callControllers([
+      {
+        controller: renderNodes,
+        params: { data: nodes, isMapping: false, container: root },
+      },
+      {
+        controller: scoreController,
+        params: {
+          score: changeState.detail.state.score,
+          isUserWin: changeState.detail.state.isUserWin,
+        },
+      },
+      {
+        controller: hashController,
+        params: null,
+      },
+      {
+        controller: routerController,
+        params: e,
+      },
+      {
+        controller: mainController,
+        params: homeController(),
+      },
+      {
+        controller: btnController,
+        params: null,
+      },
+    ]);
+  });
+  
+  document.dispatchEvent(changeState);
 };

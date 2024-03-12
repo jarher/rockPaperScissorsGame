@@ -2,9 +2,8 @@ import { mainController } from "./controller/mainController.js";
 import { startGameController } from "./controller/startGameController.js";
 import { errorComponent } from "./components/errorComponent.js";
 import { homeController } from "./controller/homeController.js";
-import { callControllers } from "./controller/callControllers.js";
 
-export function Router() {
+export function Router(e) {
   let { hash } = location;
   let node;
 
@@ -13,11 +12,11 @@ export function Router() {
       node = homeController();
       break;
     case "/start":
-      node = startGameController();
+      node = startGameController(e);
       break;
     default:
       node = errorComponent();
       break;
   }
-  callControllers([{ controller: mainController, params: node }]);
+  mainController(node);
 }

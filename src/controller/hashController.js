@@ -1,8 +1,6 @@
-import { states } from "../app.js";
-import { setStates } from "../helpers.js";
+import { changeState } from "../app.js";
 
 export const hashController = () => {
-
   document.addEventListener("click", (e) => {
     if (
       e.target.matches(".scissors-option") ||
@@ -11,7 +9,8 @@ export const hashController = () => {
       e.target.matches(".lizard-option") ||
       e.target.matches(".spock-option")
     ) {
-      setStates(states, { userOption: e.target.classList[0] });
+      
+      changeState.detail.state.userOption = e.target.classList[0];
       window.location.hash = "#/start";
     }
   });

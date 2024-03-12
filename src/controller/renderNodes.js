@@ -1,6 +1,7 @@
 const appendTo = (parent, child) => parent.appendChild(child);
 
 export const renderNodes = ({ data, isMapping, template, container }) => {
+  
   if (Array.isArray(data)) {
     if (isMapping) {
       data

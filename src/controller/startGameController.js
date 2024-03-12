@@ -1,38 +1,32 @@
-import {
-  compareOptions,
-  getStates,
-  randomValue,
-  setStates,
-} from "../helpers.js";
-import { states } from "../app.js";
+import { compareOptions, randomValue } from "../helpers.js";
+import { changeState } from "../app.js";
 import { startGameComponent } from "../components/startgameComponent.js";
 import { data } from "../data.js";
 import { optionSelectedController } from "./optionSelectedController.js";
 import { showWarningController } from "./showWarningController.js";
+import { callControllers } from "./callControllers.js";
 
-export const startGameController = function () {
+export const startGameController = function (e) {
   const gameContainer = startGameComponent();
 
-  setStates(states, {
-    houseOption: data[randomValue()].nameClass,
-    isFinished: true,
-  });
+  changeState.detail.state.houseOption = data[randomValue()].nameClass;
+  changeState.detail.state.isFinished = true;
 
-  const changeState = new CustomEvent("changeState", {
-    bubbles: false,
-    cancelable: true,
-    detail: {
-      state: getStates(states),
+  const params = { gameContainer, e };
+
+  callControllers([
+    {
+      controller:compareOptions,
+      params:e
     },
-  });
-
-  compareOptions();
-
-  optionSelectedController(gameContainer);
-
-  showWarningController(gameContainer);
-
-  document.dispatchEvent(changeState);
-  
+    {
+      controller: optionSelectedController,
+      params,
+    },
+    {
+      controller: showWarningController,
+      params,
+    },
+  ]);
   return gameContainer;
 };

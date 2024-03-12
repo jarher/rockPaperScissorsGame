@@ -1,5 +1,5 @@
 import { Router } from "../routes.js";
 
-export const routerController = () => {
-    window.addEventListener("hashchange", () => Router());
+export const routerController = (e) => {
+    window.addEventListener("hashchange", () => Router(e));
 }

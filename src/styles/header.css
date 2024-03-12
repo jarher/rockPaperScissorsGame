@@ -7,15 +7,16 @@
   padding: 10px;
   height: 90px;
 }
-header ul {
+.header ul {
   padding: 0;
   list-style: none;
   margin-left: 10px;
 }
-header li {
+.header li {
   color: white;
   font-size: 1.1rem;
-  margin: 0;
+  margin: 0px;
+  font-weight: 600;
 }
 .score-wrapper {
   display: flex;
@@ -39,4 +40,27 @@ h1 {
   margin-top: -5px;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
+}
+@media (min-width: 526px) {
+  .header {
+    width: 525px;
+    border-radius: 15px;
+    border-width: 2px;
+    padding: 15px;
+    height: auto;
+  }
+  .score-wrapper {
+    height: 85px;
+    width: 110px;
+  }
+  h1 {
+    font-size: 1.7rem;
+  }
+  .score-value {
+    font-size: 5rem;
+  }
+  .header li {
+    font-size: 1.9rem;
+    margin: -5px;
+  }
 }
