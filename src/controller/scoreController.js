@@ -1,7 +1,8 @@
-import { fadeIn } from "./fadeIn.controller.js";
-import { fadeOut } from "./fadeOutController.js";
+import { fadeIn } from "./fadeController.js";
+import { fadeOut } from "./fadeController.js";
 
-export const scoreController = ({ score, isUserWin }) => {
+export const scoreController = (e) => {
+  const {score, isUserWin} = e.detail; 
   const scoreValue = document.querySelector(".score-value");
   if (isUserWin !== null) fadeOut(scoreValue);
   setTimeout(() => {

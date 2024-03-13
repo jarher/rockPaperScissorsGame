@@ -1,31 +1,25 @@
-import { optionCircle } from "../components/optionCircleComponent.js";
-import { optionSelectedComponent } from "../components/optionSelectedComponent.js";
-import { renderNodes } from "./renderNodes.js";
 import { data } from "../data.js";
 
-export const optionSelectedController = ({ gameContainer, e }) => {
-  const user = data.filter(
-    (element) => element.nameClass === e.detail.state.userOption
-  )[0];
-  const house = data.filter(
-    (element) => element.nameClass === e.detail.state.houseOption
-  )[0];
+export const optionSelectedController = (e) => {
 
-  const gamersData = [
+  const gamers = [
     {
-      gamer: "YOU PICKED",
-      obj: optionCircle(user),
+      gamerData: data.filter(
+        (element) => element.nameClass === e.detail.userOption
+      )[0],
+      gamerContainer: document.querySelector(".option-user figure"),
     },
     {
-      gamer: "THE HOUSE PICKED",
-      obj: optionCircle(house),
+      gamerData: data.filter(
+        (element) => element.nameClass === e.detail.houseOption
+      )[0],
+      gamerContainer: document.querySelector(".option-house figure"),
     },
   ];
 
-  renderNodes({
-    data: gamersData,
-    isMapping: true,
-    template: optionSelectedComponent,
-    container: gameContainer,
+  gamers.forEach((gamer) => {
+    gamer.gamerContainer.classList.add(gamer.gamerData.nameClass);
+    gamer.gamerContainer.querySelector("img").src = gamer.gamerData.imgUrl;
   });
+
 };

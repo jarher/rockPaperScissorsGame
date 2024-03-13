@@ -4,7 +4,14 @@ const addClass = (index) =>
     .classList.add("winner-indicator");
 
 export const winnerIndicatorController = function (e) {
-  if (e.detail.state.isUserWin !== null) {
-    e.detail.state.isUserWin ? addClass(0) : addClass(1);
+  const winnerMessage = document.querySelector(".winner-message");
+  if (e.detail.isUserWin !== null) {
+    if (e.detail.isUserWin) {
+      addClass(0);
+      winnerMessage.textContent = "YOU WIN";
+    } else {
+      addClass(1);
+      winnerMessage.textContent = "YOU LOSE";
+    }
   }
 };
