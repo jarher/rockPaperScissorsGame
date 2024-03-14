@@ -1,8 +1,8 @@
 import { eventsController } from "./controller/EventsController.js";
-import { getStates, getPage } from "./helpers.js";
+import { getStates, getPage, fetchData } from "./helpers.js";
 import { routerController } from "./controller/routerController.js";
 import { renderTemplate } from "./controller/renderTemplate.js";
-import { callControllers } from "./controller/callControllers.js";
+import { scoreController } from "./controller/scoreController.js";
 
 export const states = {
   score: 12,
@@ -12,24 +12,36 @@ export const states = {
   isFinished: null,
 };
 
-// copy of default states and create custom event
+// copy default states and create custom event
 export const changeState = new CustomEvent("changeState", {
-  bubbles: true,
+  bubbles: false,
   cancelable: false,
   detail: getStates(states),
 });
+//get html documents
+export const getPages = async function () {
+  const pagesName = ["home", "start", "rules", "error"];
+  const pagePromises = pagesName.map(async (pageName) => ({
+    name: pageName,
+    content: await getPage(pageName),
+  }));
+  return await Promise.all(pagePromises);
+};
+//get app data
+const getData = async function () {
+  const response = await fetchData("./src/data.json");
+  const data = response.json();
+  return data;
+};
 
 export const App = () => {
-  callControllers([
-    {
-      controller: routerController,
-    },
-    {
-      controller: eventsController,
-    },
-  ]);
+  routerController({ data: getData(), pages: getPages() });
+  eventsController(getData());
+
   document.addEventListener("DOMContentLoaded", async () => {
-    renderTemplate(await getPage("./src/pages/home.html"));
-    window.location.hash = "#/"
+    //load initial components
+    renderTemplate("home", await getPages());
+    scoreController(changeState);
+    window.location.hash = "#/";
   });
 };

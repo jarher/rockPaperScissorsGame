@@ -1,18 +1,10 @@
-import { fadeIn } from "./fadeController.js";
 import { fadeOut } from "./fadeController.js";
-// import { rulesPage } from "../pages/rulesPage.js";
 import { compareOptions, randomValue } from "../helpers.js";
-import { data } from "../data.js";
 
-export const eventsController = function () {
-  document.addEventListener("click", (e) => {
+export const eventsController = function (value) {
+  document.addEventListener("click", async (e) => {
     if (e.target.matches(".btn-rules")) {
-      // const rulesContent = rulesPage();
-      // renderNodes({
-      //   data: rulesPage(),
-      //   container: document.querySelector("body"),
-      // });
-      // fadeIn(rulesContent);
+      window.location.hash = "#/rules";
     }
     if (e.target.matches(".btn-close")) {
       const modal = document.querySelector(".rules-modal-panel");
@@ -24,12 +16,10 @@ export const eventsController = function () {
     }
     if (e.target.matches(".option")) {
       window.location.hash = "#/start";
-      // compare selections by gamers, first parameter is userSelection
+      // compare selections by gamers, first parameter is user selection
       // second parameter is house selection
-      const changeState = compareOptions(
-        e.target.classList[0],
-        data[randomValue()].nameClass
-      );
+      const data = await value;
+      compareOptions(e.target.classList[0], data[randomValue()].nameClass);
     }
   });
 };

@@ -1,21 +1,24 @@
-import {getPage} from "../helpers.js"
-import {startGameController} from "./startGameController.js";
-import {changeState} from "../app.js";
+import { startGameController } from "./startGameController.js";
+import { changeState } from "../app.js";
 import { renderTemplate } from "./renderTemplate.js";
 
-export const routerController = () => {
-  window.addEventListener("hashchange", async () => {
+export const routerController = async ({data, pages}) => {
+  const arrayPages = await pages;
+  window.addEventListener("hashchange", () => {
     switch (window.location.hash) {
       case "#/":
-        renderTemplate(await getPage("./src/pages/home.html"));
+        renderTemplate("home", arrayPages);
         break;
       case "#/start":
-        renderTemplate(await getPage("./src/pages/start.html"));
-        startGameController();
-        document.dispatchEvent(changeState)
+        renderTemplate("start", arrayPages);
+        startGameController(data);
+        document.dispatchEvent(changeState);
+        break;
+      case "#/rules":
+        renderTemplate("rules", arrayPages);
         break;
       default:
-        renderTemplate(await getPage("./src/pages/error.html"));
+        renderTemplate("error", arrayPages);
         break;
     }
   });
