@@ -1,10 +1,12 @@
-import { fadeOut } from "./fadeController.js";
+import { fadeIn, fadeOut } from "./fadeController.js";
 import { compareOptions, randomValue } from "../helpers.js";
+import { rulesController } from "./rulesController.js";
 
 export const eventsController = function (value) {
   document.addEventListener("click", async (e) => {
     if (e.target.matches(".btn-rules")) {
-      window.location.hash = "#/rules";
+      document.querySelector('body').prepend(rulesController());
+      fadeIn(document.querySelector(".rules-modal-panel"));
     }
     if (e.target.matches(".btn-close")) {
       const modal = document.querySelector(".rules-modal-panel");

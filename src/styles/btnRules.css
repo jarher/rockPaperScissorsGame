@@ -1,3 +1,7 @@
+.btn-rules-wrapper{
+  position: relative;
+  width: 100%;
+}
 .btn-rules {
   background-color: transparent;
   color: white;
@@ -6,9 +10,17 @@
   width: 120px;
   text-align: center;
   letter-spacing: 0.2rem;
+  margin: auto;
+  display: block;
+}
+@media (min-width: 426px){
+  
 }
 @media (min-width: 1024px) {
-  .rules-btn-wrapper{
-    
+  .btn-rules-wrapper{
+    position: absolute;
+    width:auto;
+    right: 30px;
+    bottom: -35px;
   }
 }

@@ -1,16 +1,23 @@
+.option::before,
+.option::after,
 .option {
   position: absolute;
+}
+.option {
   background-color: hsl(237, 49%, 15%);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
+  cursor: pointer;
 }
-.option:after {
-  position: absolute;
+.option::before {
+  background-color: transparent;
+}
+.option::before,
+.option::after {
   content: "";
-  background-color: white;
   border-radius: 50%;
   top: 0;
   left: 0;
@@ -18,22 +25,41 @@
   bottom: 0;
   margin: auto;
   z-index: 0;
-  box-shadow: 0 3px 10px 1px hsl(218deg 44.02% 77.49%) inset;
 }
+.option::after {
+  background-color: #eeeeee;
+}
+
 .rock-option {
   background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
 }
+.rock-option::before {
+  box-shadow: 0px 3px 1px 2px hsl(349, 97%, 30%);
+}
+
 .paper-option {
   background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.paper-option::before {
+  box-shadow: 0px 3px 1px 2px hsl(230, 97%, 29%);
 }
 .scissors-option {
   background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 }
+.scissors-option::before {
+  box-shadow: 0px 3px 1px 2px hsl(29, 84%, 30%);
+}
 .lizard-option {
   background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
 }
+.lizard-option::before {
+  box-shadow: 0px 3px 1px 2px hsl(261, 97%, 30%);
+}
 .spock-option {
   background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+}
+.spock-option::before {
+  box-shadow: 0px 3px 1px 2px hsl(189, 97%, 30%);
 }
 
 .option img {

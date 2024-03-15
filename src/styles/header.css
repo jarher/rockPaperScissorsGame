@@ -1,22 +1,15 @@
 .header {
   border: 3px solid hsl(217, 16%, 45%);
   border-radius: 5px;
-  display: flex;
+  display: inherit;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  width: 85%;
   padding: 10px;
   height: 90px;
 }
-.header ul {
-  padding: 0;
-  list-style: none;
-  margin-left: 10px;
-}
-.header li {
-  color: white;
-  font-size: 1.1rem;
-  margin: 0px;
-  font-weight: 600;
+.logo-bonus {
+  width: 50px;
 }
 .score-wrapper {
   display: flex;
@@ -43,11 +36,13 @@ h1 {
 }
 @media (min-width: 526px) {
   .header {
-    width: 525px;
     border-radius: 15px;
     border-width: 2px;
     padding: 15px;
     height: auto;
+  }
+  .logo-bonus {
+    width: 70px;
   }
   .score-wrapper {
     height: 85px;
@@ -62,5 +57,25 @@ h1 {
   .header li {
     font-size: 1.9rem;
     margin: -5px;
+  }
+}
+@media (min-width: 1024px) {
+  .header {
+    width: 690px;
+    padding: 25px;
+    height: 150px;
+  }
+  .logo-bonus {
+    width: 120px;
+  }
+  .score-wrapper {
+    width: 150px;
+    height: 110px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .score-value {
+    font-size: 5.5rem;
   }
 }

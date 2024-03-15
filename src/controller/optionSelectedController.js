@@ -1,4 +1,5 @@
 export const optionSelectedController = async ({ data, e }) => {
+  
   const array = await data;
   const gamers = [
     {

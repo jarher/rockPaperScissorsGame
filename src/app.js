@@ -9,7 +9,6 @@ export const states = {
   userOption: null,
   houseOption: null,
   isUserWin: null,
-  isFinished: null,
 };
 
 // copy default states and create custom event
@@ -20,7 +19,7 @@ export const changeState = new CustomEvent("changeState", {
 });
 //get html documents
 export const getPages = async function () {
-  const pagesName = ["home", "start", "rules", "error"];
+  const pagesName = ["home", "start", "error"];
   const pagePromises = pagesName.map(async (pageName) => ({
     name: pageName,
     content: await getPage(pageName),
