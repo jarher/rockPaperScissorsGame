@@ -5,8 +5,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 60px;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0;
+
 }
 .option-wrapper {
   position: relative;
@@ -59,7 +58,7 @@
   animation-name: shadowAnimate;
   animation-duration: 2s;
   animation-iteration-count: infinite;
-  animation-direction: forwards;
+  animation-fill-mode: forwards;
 }
 @media (min-width: 1024px) {
   .start{

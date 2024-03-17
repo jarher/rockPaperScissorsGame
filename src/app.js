@@ -1,8 +1,8 @@
 import { eventsController } from "./controller/EventsController.js";
 import { getStates, getPage, fetchData } from "./helpers.js";
 import { routerController } from "./controller/routerController.js";
-import { renderTemplate } from "./controller/renderTemplate.js";
 import { scoreController } from "./controller/scoreController.js";
+import { renderTemplate } from "./controller/renderTemplate.js";
 
 export const states = {
   score: 12,
@@ -33,14 +33,13 @@ const getData = async function () {
   return data;
 };
 
-export const App = () => {
-  routerController({ data: getData(), pages: getPages() });
-  eventsController(getData());
+const data = await getData();
+const pages = await getPages();
 
-  document.addEventListener("DOMContentLoaded", async () => {
-    //load initial components
-    renderTemplate("home", await getPages());
-    scoreController(changeState);
-    window.location.hash = "#/";
-  });
+export const App = () => {
+  //load initial elements
+  window.location.hash = "#/";
+  routerController({ data, pages });
+  eventsController(data);
+  scoreController(changeState);
 };

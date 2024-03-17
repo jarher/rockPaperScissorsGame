@@ -1,12 +1,10 @@
-import { fadeIn } from "./fadeController.js";
-import { fadeOut } from "./fadeController.js";
+import { fadeIn, getElement } from "../helpers.js";
 
 export const scoreController = (e) => {
-  const {score, isUserWin} = e.detail; 
-  const scoreValue = document.querySelector(".score-value");
-  if (isUserWin !== null) fadeOut(scoreValue);
-  setTimeout(() => {
-    scoreValue.textContent = score;
-    fadeIn(scoreValue);
-  }, 300);
+  console.log(e)
+  const { score, isUserWin } = e.detail;
+  if (isUserWin !== null) {
+    getElement(".score-value").textContent = score;
+    fadeIn(".score-value");
+  }
 };

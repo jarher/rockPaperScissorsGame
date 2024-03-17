@@ -1,15 +1,14 @@
-export const optionSelectedController = async ({ data, e }) => {
+export const optionSelectedController = ({ data, e }) => {
   
-  const array = await data;
   const gamers = [
     {
-      gamerData: array.filter(
+      gamerData: data.filter(
         (element) => element.nameClass === e.detail.userOption
       )[0],
       gamerContainer: document.querySelector(".option-user figure"),
     },
     {
-      gamerData: array.filter(
+      gamerData: data.filter(
         (element) => element.nameClass === e.detail.houseOption
       )[0],
       gamerContainer: document.querySelector(".option-house figure"),

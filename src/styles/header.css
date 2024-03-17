@@ -31,8 +31,7 @@ h1 {
   font-size: 4rem;
   font-weight: 700;
   margin-top: -5px;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0;
+  opacity: 1;
 }
 @media (min-width: 526px) {
   .header {

@@ -35,6 +35,7 @@ section {
   display: flex;
   flex-direction: column;
   margin: auto;
+  opacity: 1;
 }
 button {
   border: none;
@@ -45,11 +46,21 @@ img {
   width: 100%;
   height: auto;
 }
+@keyframes fadeInAnimate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .fadeIn {
-  opacity: 1;
+  animation-name: fadeInAnimate;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
 }
 @media (min-width: 1024px) {
-  .container{
+  .container {
     padding-bottom: 0;
   }
   #root {

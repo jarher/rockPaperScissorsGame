@@ -1,12 +1,11 @@
 .winner-wrapper {
-  margin:80px auto auto;
+  margin: 80px auto auto;
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 .winner-message,
 .winner-replay-btn {
@@ -17,6 +16,20 @@
   font-weight: 600;
   text-align: center;
 }
+@keyframes showAnimate {
+  50% {
+    display: flex!important;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.winner-show {
+  animation-name: showAnimate;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
 .winner-replay-btn {
   background-color: white;
   padding: 15px;
@@ -26,8 +39,8 @@
   color: hsl(229, 25%, 31%);
   letter-spacing: 0.1rem;
 }
-@media (min-width:1024px) {
-  .winner-wrapper{
+@media (min-width: 1024px) {
+  .winner-wrapper {
     width: 230px;
     margin: 0 auto;
     order: 2;

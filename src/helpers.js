@@ -46,3 +46,22 @@ export const getPage = async function (url) {
     alert("resource not found");
   }
 };
+
+export const getElement = (selector) => document.querySelector(selector);
+
+export const addClass = (selector, nameClass) =>
+  getElement(selector).classList.add(nameClass);
+
+export const fadeIn = (selector) => {
+  addClass(selector, "fadeIn");
+  fadeOut(selector);
+};
+
+export const fadeOut = (selector) => {
+  timer(() => getElement(selector).classList.remove("fadeIn"), 500);
+  return getElement(selector);
+};
+
+export const timer = (callback, time) => {
+  setTimeout(() => callback(), time);
+};
