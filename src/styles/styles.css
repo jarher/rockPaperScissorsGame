@@ -25,7 +25,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 #root {
   width: 85%;
@@ -60,11 +60,23 @@ img {
   animation-fill-mode: forwards;
 }
 @media (min-width: 1024px) {
+  body {
+    height: 100vh;
+  }
   .container {
+    background: radial-gradient(at center top, #1f3756 28%, #141539 70%);
     padding-bottom: 0;
+    height: 100%;
   }
   #root {
     width: auto;
-    height: 510px;
+  }
+}
+@media (min-width: 1366px) {
+  #root {
+    height: calc(100vh - 11.0185vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

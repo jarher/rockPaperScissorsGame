@@ -1,6 +1,7 @@
 .btn-rules-wrapper{
   position: relative;
   width: 100%;
+  z-index: 1;
 }
 .btn-rules {
   background-color: transparent;
@@ -20,7 +21,12 @@
   .btn-rules-wrapper{
     position: absolute;
     width:auto;
-    right: 30px;
-    bottom: -35px;
+    right: 35px;
+    bottom: 35px;
+  }
+}
+@media (min-width: 1366px) {
+  .btn-rules-wrapper{
+    bottom: 35px;
   }
 }

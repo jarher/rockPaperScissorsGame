@@ -1,4 +1,4 @@
-import { addClass } from "../helpers.js";
+import { addClass, getElement, timer } from "../helpers.js";
 import { scoreController } from "./scoreController.js";
 import { winnerIndicatorController } from "./winnerIndicatorController.js";
 

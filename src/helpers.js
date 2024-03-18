@@ -9,7 +9,7 @@ export const compareOptions = function (userOption, houseOption) {
   changeState.detail.userOption = userOption;
   changeState.detail.houseOption = houseOption;
   changeState.detail.isFinished = true;
-
+  
   if (userOption === houseOption) {
     changeState.detail.isUserWin = null;
   } else if (
@@ -29,7 +29,7 @@ export const compareOptions = function (userOption, houseOption) {
     changeState.detail.score = score == 0 ? 0 : score - 1;
   }
 
-  return changeState;
+  return;
 };
 
 export const fetchData = async function (url) {
