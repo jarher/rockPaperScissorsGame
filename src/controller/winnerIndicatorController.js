@@ -1,20 +1,27 @@
 import { getElement } from "../helpers.js";
 
-const add = (options, index = 1) => {
-  options[index].querySelector("figure").classList.add("winner-indicator");
+const highlightWinnerOption = (options, index = 1) => {
+  if (options[index]) {
+    options[index].querySelector("figure").classList.add("winner-indicator");
+  }
 };
 
 export const winnerIndicatorController = function (e) {
   const options = Array.from(document.querySelectorAll(".option-wrapper"));
-  ['moveLeft', 'moveRight'].forEach((nameClass, i) => options[i].classList.add(nameClass))
+  ["moveLeft", "moveRight"].forEach((nameClass, i) => {
+    if (options[i]) {
+      options[i].classList.add(nameClass);
+    }
+  });
 
-  if (e.detail.isUserWin !== null) {
+  if (e.detail && e.detail.isUserWin !== null) {
+    const winnerMessage = getElement(".winner-message");
     if (e.detail.isUserWin) {
-      getElement(".winner-message").textContent = "YOU WIN";
-      add(options, 0);
+      winnerMessage.textContent = "YOU WIN";
+      highlightWinnerOption(options, 0);
       return;
     }
-    getElement(".winner-message").textContent = "YOU LOSE";
-    add(options);
+    winnerMessage.textContent = "YOU LOSE";
+    highlightWinnerOption(options);
   }
 };

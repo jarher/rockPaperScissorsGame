@@ -50,6 +50,12 @@
 .home .option::after {
   box-shadow: 0 4px 1px 1px hsl(0deg 0% 81.1%) inset;
 }
+.home .option:active{
+  transform: scale(0.9);
+}
+.home .option:active::before{
+  box-shadow: none;
+}
 @media (min-width: 426px) {
   .home {
     width: 370px;

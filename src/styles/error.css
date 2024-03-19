@@ -1,0 +1,29 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+}
+.error h1,
+.error p {
+  color: white;
+}
+.error h1{
+  font-size: 4rem;
+  font-weight: 700;
+}
+.error p {
+  font-size: 2rem;
+}
+.error button{
+  width: auto;
+}
+.error button a{
+  text-decoration: none;
+  color:hsl(229, 25%, 31%);
+  padding: 15px;
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}

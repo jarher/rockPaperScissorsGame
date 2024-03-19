@@ -29,6 +29,6 @@ export const App = () => {
     eventsController(data);
     scoreController(changeState);
   } catch (error) {
-    alert("Internal error");
+    alert(error);
   }
 };

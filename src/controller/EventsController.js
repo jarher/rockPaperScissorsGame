@@ -7,11 +7,13 @@ export const eventsController = function (data) {
       rulesController();
     }
     if (e.target.matches(".btn-close")) {
-      const rulesModal = getElement(".rules-modal-panel");
-      rulesModal.style.opacity = 0;
-      timer(() => {
-        rulesModal.remove();
-      }, 500);
+      const modalElement = getElement(".rules-modal-panel");
+      if (modalElement) {
+        modalElement.style.opacity = 0;
+        timer(() => {
+          modalElement.remove();
+        }, 500);
+      }
     }
     if (e.target.matches(".winner-replay-btn")) {
       window.location.hash = "#/";
