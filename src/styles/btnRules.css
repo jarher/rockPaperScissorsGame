@@ -1,4 +1,4 @@
-.btn-rules-wrapper{
+.btn-rules-wrapper {
   position: relative;
   width: 100%;
   z-index: 1;
@@ -14,19 +14,19 @@
   margin: auto;
   display: block;
 }
-@media (min-width: 426px){
-  
+
+@media (min-width: 426px) {
 }
 @media (min-width: 1024px) {
-  .btn-rules-wrapper{
+  .btn-rules-wrapper {
     position: absolute;
-    width:auto;
+    width: auto;
     right: 35px;
     bottom: 35px;
   }
 }
 @media (min-width: 1366px) {
-  .btn-rules-wrapper{
+  .btn-rules-wrapper {
     bottom: 35px;
   }
 }

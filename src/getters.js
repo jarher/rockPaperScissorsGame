@@ -2,11 +2,12 @@ import { fetchData, getPage } from "./helpers.js";
 
 //get html documents
 export const getPages = async function () {
-  const pagesName = ["home", "start", "error"];
-  const pagePromises = pagesName.map(async (pageName) => ({
-    name: pageName,
-    content: await getPage(pageName),
-  }));
+  const pagePromises = ["home", "start", "rules", "error"].map(
+    async (pageName) => ({
+      name: pageName,
+      content: await getPage(pageName),
+    })
+  );
   return await Promise.all(pagePromises);
 };
 //get app data

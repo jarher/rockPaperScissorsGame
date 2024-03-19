@@ -6,7 +6,7 @@
   bottom: 0;
   z-index: 999;
   transition: opacity 0.3s ease-in-out;
-  opacity: 0;
+  opacity: 1;
 }
 .rules-modal-content {
   background-color: white;
@@ -30,13 +30,14 @@
   height: 25px;
   width: 25px;
   margin-top: 75px;
+  cursor: pointer;
 }
 @media (min-width: 426px) {
   .rules-modal-panel {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
   }
   .rules-modal-content {
     width: 310px;
@@ -53,7 +54,7 @@
     order: 1;
     margin: 0;
   }
-  .rules-modal-content img {
+  .rules-img {
     width: 100%;
     order: 3;
     margin-top: 10px;
@@ -61,5 +62,16 @@
   .btn-close {
     order: 2;
     margin: 0;
+    height: 25px;
+    width: 25px;
+  }
+}
+@media (min-width: 1024px) {
+  .rules-modal-content {
+    width: 400px;
+    height: 500px;
+  }
+  .rules-img {
+    margin:0 auto;
   }
 }

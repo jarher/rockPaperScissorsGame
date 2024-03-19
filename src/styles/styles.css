@@ -59,6 +59,24 @@ img {
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
 }
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+}
+.error h1,
+.error p {
+  color: white;
+}
+.error h1{
+  font-size: 4rem;
+  font-weight: 700;
+}
+.error p {
+  font-size: 2rem;
+}
 @media (min-width: 1024px) {
   body {
     height: 100vh;

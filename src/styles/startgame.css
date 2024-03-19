@@ -115,14 +115,13 @@
     gap: 40px;
   }
   .option::after {
-    box-shadow: 0 10px 1px 1px hsl(0deg 0% 81.1%) inset;
+    box-shadow: 0 7px 1px 1px hsl(0deg 0% 81.1%) inset;
   }
   .option-name {
     font-size: 2rem;
   }
   .start .option {
-    /* width: 290px; */
-    width: 45.24180967238689vh;
+    width: 290px;
     height: 290px;
   }
   .start .option::after {
@@ -156,4 +155,26 @@
         0px 0px 1px 215px hsla(217, 16%, 45%, 0.1);
     }
   }
+  .start .rock-option::before {
+    box-shadow: 2px 6px 1px 1px hsl(349, 97%, 30%);
+  }
+
+  .start .paper-option::before {
+    box-shadow: 2px 6px 1px 1px hsl(230, 97%, 29%);
+  }
+
+  .start .scissors-option::before {
+    box-shadow: 2px 6px 1px 1px hsl(29, 84%, 30%);
+  }
+
+  .start .lizard-option::before {
+    box-shadow: 2px 6px 1px 1px hsl(261, 97%, 30%);
+  }
+
+  .start .spock-option::before {
+    box-shadow: 2px 6px 1px 1px hsl(189, 97%, 30%);
+  }
+}
+@media (min-width:1366px){
+
 }
