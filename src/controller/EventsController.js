@@ -1,4 +1,5 @@
-import { compareOptions, randomValue, timer } from "../helpers.js";
+import { compareOptions } from "../comparator.js";
+import { randomValue, timer } from "../helpers.js";
 import { rulesController } from "./rulesController.js";
 
 export const eventsController = function (props) {

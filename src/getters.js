@@ -1,4 +1,4 @@
-import { fetchData, getPage } from "./helpers.js";
+import { fetchData, getPage } from "./fetch.js";
 
 //get html documents
 export const getPages = async function () {
