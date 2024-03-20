@@ -1,5 +1,3 @@
-import { changeState } from "./app.js";
-
 export const getStates = (data) => JSON.parse(JSON.stringify(data));
 
 export const randomValue = () => Math.floor(Math.random() * 5);
@@ -20,22 +18,24 @@ const isUserWinner = (userOption, houseOption) => {
   return false;
 };
 
-export const compareOptions = function (userOption, houseOption) {
-  const score = changeState.detail.score;
+export const compareOptions = function (userOption, houseOption, eventData) {
+  const score = eventData.detail.score;
   //asign new values to changeState
-  changeState.detail.userOption = userOption;
-  changeState.detail.houseOption = houseOption;
-  changeState.detail.isFinished = true;
+  eventData.detail.userOption = userOption;
+  eventData.detail.houseOption = houseOption;
+  eventData.detail.isFinished = true;
 
   if (userOption === houseOption) {
-    changeState.detail.isUserWin = null;
-  } else if (isUserWinner(userOption, houseOption)) {
-    changeState.detail.isUserWin = true;
-    changeState.detail.score = score + 1;
-  } else {
-    changeState.detail.isUserWin = false;
-    changeState.detail.score = score == 0 ? 0 : score - 1;
+    eventData.detail.isUserWin = null;
+    return;
   }
+  if (isUserWinner(userOption, houseOption)) {
+    eventData.detail.isUserWin = true;
+    eventData.detail.score = score + 1;
+    return;
+  }
+  eventData.detail.isUserWin = false;
+  eventData.detail.score = score == 0 ? 0 : score - 1;
 };
 
 export const fetchData = async function (url) {
@@ -71,3 +71,7 @@ export const fadeOut = (selector) => {
 export const timer = (callback, time) => {
   setTimeout(() => callback(), time);
 };
+
+export const callControllers = function(controllerArray, params){
+  controllerArray.forEach(controller => controller(params));
+}

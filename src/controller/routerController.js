@@ -1,8 +1,8 @@
 import { startGameController } from "./startGameController.js";
-import { changeState } from "../app.js";
 import { renderTemplate } from "./renderTemplate.js";
 
-export const routerController = ({ data, pages }) => {
+export const routerController = (props) => {
+  const { eventData } = props;
   window.addEventListener("hashchange", () => {
     let pageName;
     switch (window.location.hash) {
@@ -16,11 +16,11 @@ export const routerController = ({ data, pages }) => {
         pageName = "error";
         break;
     }
-    renderTemplate(pageName, pages);
+    renderTemplate(pageName, props);
     if (pageName === "start") {
-      startGameController(data);
-      // launch custom event 
-      document.dispatchEvent(changeState);
+      startGameController(props);
+      // launch custom event
+      document.dispatchEvent(eventData);
     }
   });
 };

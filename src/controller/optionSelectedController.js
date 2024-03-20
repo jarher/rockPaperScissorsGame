@@ -1,13 +1,14 @@
-export const optionSelectedController = ({ data, e }) => {
+export const optionSelectedController = (params) => {
+  const [{ optionData }, e] = params;
   const gamers = [
     {
-      gamerData: data.find(
+      gamerData: optionData.find(
         (element) => element.nameClass === e.detail.userOption
       ),
       gamerContainer: document.querySelector(".option-user figure"),
     },
     {
-      gamerData: data.find(
+      gamerData: optionData.find(
         (element) => element.nameClass === e.detail.houseOption
       ),
       gamerContainer: document.querySelector(".option-house figure"),

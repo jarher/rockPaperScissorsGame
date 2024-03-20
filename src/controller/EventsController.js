@@ -1,10 +1,11 @@
-import { compareOptions, getElement, randomValue, timer } from "../helpers.js";
+import { compareOptions, randomValue, timer } from "../helpers.js";
 import { rulesController } from "./rulesController.js";
 
-export const eventsController = function (data) {
+export const eventsController = function (props) {
+  const{optionData, eventData, getElement} = props;
   document.addEventListener("click", (e) => {
     if (e.target.matches(".btn-rules")) {
-      rulesController();
+      rulesController(props);
     }
     if (e.target.matches(".btn-close")) {
       const modalElement = getElement(".rules-modal-panel");
@@ -25,7 +26,7 @@ export const eventsController = function (data) {
       const userOption = e.target.matches(".option-img")
         ? e.target.parentElement.classList[0]
         : e.target.classList[0];
-      compareOptions(userOption, data[randomValue()].nameClass);
+      compareOptions(userOption, optionData[randomValue()].nameClass, eventData);
     }
   });
 };
