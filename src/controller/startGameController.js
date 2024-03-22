@@ -5,6 +5,6 @@ export const startGameController = function (props) {
   document.addEventListener("changeState", (e) => {
     const params = [props, e];
     optionSelectedController(params);
-    showWarningController(param);
+    showWarningController(params);
   });
 };

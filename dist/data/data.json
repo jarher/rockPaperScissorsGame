@@ -1,0 +1,27 @@
+[
+  {
+    "nameClass": "rock-option",
+    "imgUrl": "./images/icon-rock.svg",
+    "altText":"rock option image"
+  },
+  {
+    "nameClass": "paper-option",
+    "imgUrl": "./images/icon-paper.svg",
+    "altText":"paper option image"
+  },
+  {
+    "nameClass": "scissors-option",
+    "imgUrl": "./images/icon-scissors.svg",
+    "altText": "scissors option image"
+  },
+  {
+    "nameClass": "lizard-option",
+    "imgUrl": "./images/icon-lizard.svg",
+    "altText": "lizard option image"
+  },
+  {
+    "nameClass": "spock-option",
+    "imgUrl": "./images/icon-spock.svg",
+    "altText": "spock option image"
+  }
+]

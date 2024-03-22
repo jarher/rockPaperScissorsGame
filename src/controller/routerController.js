@@ -1,25 +1,29 @@
 import { startGameController } from "./startGameController.js";
 import { renderTemplate } from "./renderTemplate.js";
+import home from "../pages/home.html";
+import start from "../pages/start.html";
+import error from "../pages/error.html";
 
 export const routerController = (props) => {
   const { eventData } = props;
   window.addEventListener("hashchange", () => {
-    let pageName;
+    let page;
+    let startPage = false;
     switch (window.location.hash) {
       case "#/":
-        pageName = "home";
+        page = home;
         break;
       case "#/start":
-        pageName = "start";
+        page = start;
+        startPage = true;
         break;
       default:
-        pageName = "error";
+        page = error;
         break;
     }
-    renderTemplate(pageName, props);
-    if (pageName === "start") {
+    renderTemplate(page, props);
+    if (startPage) {
       startGameController(props);
-      // launch custom event
       document.dispatchEvent(eventData);
     }
   });

@@ -1,7 +1,6 @@
-export const renderTemplate = (pageName, {pages, getElement, fadeIn}) => {
-  const template = pages.find((obj) => obj.name === pageName).content;
+export const renderTemplate = (page, {getElement, fadeIn}) => {
   const root = getElement("#root");
   root.innerHTML = "";
-  root.innerHTML = template;
+  root.innerHTML = page;
   fadeIn("section");
 };

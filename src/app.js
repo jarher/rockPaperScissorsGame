@@ -1,7 +1,7 @@
 import { eventsController } from "./controller/EventsController.js";
 import { routerController } from "./controller/routerController.js";
 import { scoreController } from "./controller/scoreController.js";
-import { getData, getPages } from "./getters.js";
+import { getData } from "./getter.js";
 import { getElement, getStates, fadeIn, callControllers } from "./helpers.js";
 
 //inicial app states
@@ -21,7 +21,6 @@ export const changeState = new CustomEvent("changeState", {
 });
 //fetch app data
 const optionData = await getData();
-export const pages = await getPages();
 
 export const App = () => {
   try {
@@ -31,7 +30,6 @@ export const App = () => {
     const modulesProperties = {
       optionData,
       eventData: changeState,
-      pages,
       getElement,
       fadeIn,
       scoreController

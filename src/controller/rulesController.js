@@ -1,10 +1,9 @@
-import { pages } from "../app.js";
+import rules from "../pages/rules.html";
 
-export const rulesController = function ({getElement, fadeIn}) {
-  const rulescontent = pages.find((page) => page.name === "rules").content;
+export const rulesController = function ({ fadeIn }) {
   const rulesModalPanel = document.createElement("div");
   rulesModalPanel.className = "rules-modal-panel";
-  rulesModalPanel.innerHTML = rulescontent;
-  getElement("body").prepend(rulesModalPanel);
+  rulesModalPanel.innerHTML = rules;
+  document.body.prepend(rulesModalPanel);
   fadeIn(".rules-modal-panel");
 };
