@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [https://rock-paper-scissors-game-pearl-two.vercel.app/#/]
+- Live Site URL: [https://rock-paper-scissors-game-q7q1.vercel.app/#/]
 
 ## My process
 
