@@ -510,9 +510,9 @@ h1 {
   }
   @keyframes shadowAnimate {
     100% {
-      box-shadow: 0px 0px 1px 75px hsla(217, 16%, 45%, 0.3),
-        0px 0px 1px 145px hsla(217, 16%, 45%, 0.3),
-        0px 0px 1px 215px hsla(217, 16%, 45%, 0.3);
+      box-shadow: 0px 0px 1px 75px hsla(217, 16%, 45%, 0.2),
+        0px 0px 1px 145px hsla(217, 16%, 45%, 0.2),
+        0px 0px 1px 215px hsla(217, 16%, 45%, 0.2);
     }
   }
   .start .rock-option::before {
